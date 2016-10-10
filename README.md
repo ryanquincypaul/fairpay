@@ -12,18 +12,18 @@ Output
 
 ```JSON
 {
-  "is-error": "false",
-  "error": {},
-  "fairpay": "false",
-  "wage-breakdown": {
-                      "normal-hours": "40",
-                      "normal-pay": "290.00,
-                      "overtime-hours": "10"
-                      "overtime-pay": "108.75",
-                      "total-pay": "398.75",
-                      "reported-gross-wages": "300.00",
-                      "difference": "98.75"
-                    }
+	"is-error": "false",
+	"error": {},
+	"fairpay": "false",
+	"wage-breakdown": {
+		"normal-hours": "40",
+		"normal-pay": "290.00",
+		"overtime-hours": "10",
+		"overtime-pay": "108.75",
+		"total-pay": "398.75",
+		"reported-gross-wages": "300.00",
+		"difference": "98.75"
+	}
 }
 ```
 
