@@ -38,7 +38,7 @@
              fields-in-error
              (conj fields-in-error (first required-fields))))))))
 
-(def ^{:private true} weekly-pay-required-fields ["minimum-wage" "hours-worked" "gross-wages"])
+(def ^{:private true} weekly-pay-required-fields [:minimum-wage :hours-worked :gross-wages])
 
 (defn build-invalid-fields-error-response
   "invalid-fields is a vector of strings"
@@ -65,9 +65,9 @@
 (defn ^{:private true} form-calculate-weekly-pay-response
   "This method returns a response for the weekly pay route and assumes a validated request"
   [request]
-  (let [minimum-wage (bigdec (get request "minimum-wage"))
-        hours-worked (bigdec (get request "hours-worked"))
-        reported-gross-pay (bigdec (get request "gross-wages"))
+  (let [minimum-wage (bigdec (get request :minimum-wage))
+        hours-worked (bigdec (get request :hours-worked))
+        reported-gross-pay (bigdec (get request :gross-wages))
         hours-breakdown (hours-worked-breakdown hours-worked)
         normal-hours (:normal-hours hours-breakdown)
         overtime-hours (:overtime-hours hours-breakdown)

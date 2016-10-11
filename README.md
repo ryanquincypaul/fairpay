@@ -37,7 +37,7 @@ I wrote this as a microservice to a future web application that will be availabl
 
 ## API Reference
 
-A description of the call (currently that is singular) can soon be found on the [wiki](https://github.com/ryanquincypaul/fairpay/wiki).
+A description of the calls can be found on the [wiki](https://github.com/ryanquincypaul/fairpay/wiki).
 
 ## Install
 
