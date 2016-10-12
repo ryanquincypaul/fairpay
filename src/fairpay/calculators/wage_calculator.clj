@@ -36,7 +36,7 @@
            ;If field is not valid add it to the list 
            (if (:valid validate-field-response)
              fields-in-error
-             (conj fields-in-error (first required-fields))))))))
+             (conj fields-in-error (name (first required-fields)))))))))
 
 (def ^{:private true} weekly-pay-required-fields [:minimum-wage :hours-worked :gross-wages])
 

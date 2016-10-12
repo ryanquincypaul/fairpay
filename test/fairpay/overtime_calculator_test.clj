@@ -4,20 +4,20 @@
             [fairpay.calculators.wage-calculator :refer :all]))
 
 
-(def all-params {"minimum-wage" "7.25" "hours-worked" "40" "gross-wages" "290"})
+(def all-params {:minimum-wage "7.25" :hours-worked "40" :gross-wages "290"})
 
-(def missing-minwage {"hours-worked" "40" "gross-wages" "290"})
-(def missing-hours-worked {"minimum-wage" "7.25" "gross-wages" "290"})
-(def missing-gross-wages {"minimum-wage" "7.25" "hours-worked" "40"})
-(def missing-multiple {"minimum-wage" "7.25"})
+(def missing-minwage {:hours-worked "40" :gross-wages "290"})
+(def missing-hours-worked {:minimum-wage "7.25" :gross-wages "290"})
+(def missing-gross-wages {:minimum-wage "7.25" :hours-worked "40"})
+(def missing-multiple {:minimum-wage "7.25"})
 
-(def not-numeric-minwage {"minimum-wage" "abc" "hours-worked" "40" "gross-wages" "290"})
-(def not-numeric-hours-worked {"minimum-wage" "7.25" "hours-worked" "abc" "gross-wages" "290"})
-(def not-numeric-gross-wages {"minimum-wage" "7.25" "hours-worked" "40" "gross-wages" "abc"})
-(def not-numeric-multiple {"minimum-wage" "abc" "hours-worked" "abc" "gross-wages" "abc"})
+(def not-numeric-minwage {:minimum-wage "abc" :hours-worked "40" :gross-wages "290"})
+(def not-numeric-hours-worked {:minimum-wage  "7.25" :hours-worked "abc" :gross-wages "290"})
+(def not-numeric-gross-wages {:minimum-wage "7.25" :hours-worked "40" :gross-wages "abc"})
+(def not-numeric-multiple {:minimum-wage "abc" :hours-worked "abc" :gross-wages "abc"})
 
-(def empty-string-minwage {"minimum-wage" "" "hours-worked" "40" "gross-wages" "290"})
-(def nil-minwage {"minimum-wage" nil "hours-worked" "40" "gross-wages" "290"})
+(def empty-string-minwage {:minimum-wage "" :hours-worked "40" :gross-wages "290"})
+(def nil-minwage {:minimum-wage nil :hours-worked "40" :gross-wages "290"})
 
 ;;These tests are to check for missing or invalid data
 (deftest missing-minwage-test
@@ -71,9 +71,9 @@
                      :error {:message "The following fields are not present or are invalid" :fields ["minimum-wage"]}}))))
 
 ;;Testing different scenarios with valid data
-(def full-hours-proper-paid {"minimum-wage" "7.25" "hours-worked" "40" "gross-wages" "290"})
-(def full-hours-under-paid {"minimum-wage" "7.25" "hours-worked" "40" "gross-wages" "200"})
-(def full-hours-over-paid {"minimum-wage" "7.25" "hours-worked" "40" "gross-wages" "400"})
+(def full-hours-proper-paid {:minimum-wage "7.25" :hours-worked "40" :gross-wages "290"})
+(def full-hours-under-paid {:minimum-wage "7.25" :hours-worked "40" :gross-wages "200"})
+(def full-hours-over-paid {:minimum-wage "7.25" :hours-worked "40" :gross-wages "400"})
 
 (deftest full-hours-proper-paid-test
   (let [response (calculate-weekly-pay full-hours-proper-paid)]
@@ -114,9 +114,9 @@
                                       :reported-gross-wages "400.00"
                                       :difference "-110.00"}}))))
 
-(def under-hours-proper-paid {"minimum-wage" "7.25" "hours-worked" "30" "gross-wages" "217.5"})
-(def under-hours-under-paid {"minimum-wage" "7.25" "hours-worked" "30" "gross-wages" "200"})
-(def under-hours-over-paid {"minimum-wage" "7.25" "hours-worked" "30" "gross-wages" "250"})
+(def under-hours-proper-paid {:minimum-wage "7.25" :hours-worked "30" :gross-wages "217.5"})
+(def under-hours-under-paid {:minimum-wage "7.25" :hours-worked "30" :gross-wages "200"})
+(def under-hours-over-paid {:minimum-wage "7.25" :hours-worked "30" :gross-wages "250"})
 
 (deftest under-hours-proper-paid-test
   (let [response (calculate-weekly-pay under-hours-proper-paid)]
@@ -157,9 +157,9 @@
                                       :reported-gross-wages "250.00"
                                       :difference "-32.50"}}))))
 
-(def overtime-hours-proper-paid {"minimum-wage" "7.25" "hours-worked" "50" "gross-wages" "398.75"})
-(def overtime-hours-under-paid {"minimum-wage" "7.25" "hours-worked" "50" "gross-wages" "300"})
-(def overtime-hours-over-paid {"minimum-wage" "7.25" "hours-worked" "50" "gross-wages" "450"})
+(def overtime-hours-proper-paid {:minimum-wage "7.25" :hours-worked "50" :gross-wages "398.75"})
+(def overtime-hours-under-paid {:minimum-wage "7.25" :hours-worked "50" :gross-wages "300"})
+(def overtime-hours-over-paid {:minimum-wage "7.25" :hours-worked "50" :gross-wages "450"})
 
 
 (deftest overtime-hours-proper-paid-test
