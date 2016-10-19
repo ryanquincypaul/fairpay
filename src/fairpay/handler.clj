@@ -6,7 +6,8 @@
             [ring.middleware.json :as middleware]
             [ring.util.response :refer [response]]
             [fairpay.calculators.wage-calculator  :refer :all]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+            [ring.middleware.cors :refer [wrap-cors]]))
 
 (def api-reference-md-resource "public/fairpay-api-reference.md")
 
@@ -22,4 +23,6 @@
 (def app
   (-> (wrap-defaults app-routes site-defaults)
       (middleware/wrap-json-body {:keywords? true})
-      (middleware/wrap-json-response app-routes)))
+      (middleware/wrap-json-response app-routes)
+      (wrap-cors :access-control-allow-origin #".*"
+                 :access-control-allow-methods [:get])))
