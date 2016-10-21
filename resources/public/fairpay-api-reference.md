@@ -20,7 +20,7 @@ All of these calls must be appended to the end of the website hosting the servic
 
 Calculates fair payment for a week of work given a minimum-wage, hours worked, and gross pay.
 
-`/calculate-weekly-pay?minimum-wage=7.25&hours-worked=50&gross-wages=200`
+`/calculate-weekly-pay?minimum_wage=7.25&hours_worked=50&gross_wages=200`
 
 ### Parameters
 
@@ -34,16 +34,16 @@ Calculates fair payment for a week of work given a minimum-wage, hours worked, a
 
 ```JSON
 {
-  "is-error": false,
+  "is_error": false,
   "error": {},
   "fairpay": false,
-  "wage-breakdown": {
-    "normal-hours": "40",
-    "normal-pay": "290.00",
-    "overtime-hours": "10",
-    "overtime-pay": "108.75",
-    "total-pay": "398.75",
-    "reported-gross-wages": "200.00",
+  "wage_breakdown": {
+    "normal_hours": "40",
+    "normal_pay": "290.00",
+    "overtime_hours": "10",
+    "overtime_pay": "108.75",
+    "total_pay": "398.75",
+    "reported_gross_wages": "200.00",
     "difference": "198.75"
   }
 }

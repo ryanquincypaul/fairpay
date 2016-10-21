@@ -38,12 +38,12 @@
              fields-in-error
              (conj fields-in-error (name (first required-fields)))))))))
 
-(def ^{:private true} weekly-pay-required-fields [:minimum-wage :hours-worked :gross-wages])
+(def ^{:private true} weekly-pay-required-fields [:minimum_wage :hours_worked :gross_wages])
 
 (defn build-invalid-fields-error-response
   "invalid-fields is a vector of strings"
   [invalid-fields]
-  {:is-error true
+  {:is_error true
    :error {:message "The following fields are not present or are invalid" :fields invalid-fields}})
 
 (def ^{:private true} full-time-hours 40)
@@ -65,9 +65,9 @@
 (defn ^{:private true} form-calculate-weekly-pay-response
   "This method returns a response for the weekly pay route and assumes a validated request"
   [request]
-  (let [minimum-wage (bigdec (get request :minimum-wage))
-        hours-worked (bigdec (get request :hours-worked))
-        reported-gross-pay (bigdec (get request :gross-wages))
+  (let [minimum-wage (bigdec (get request :minimum_wage))
+        hours-worked (bigdec (get request :hours_worked))
+        reported-gross-pay (bigdec (get request :gross_wages))
         hours-breakdown (hours-worked-breakdown hours-worked)
         normal-hours (:normal-hours hours-breakdown)
         overtime-hours (:overtime-hours hours-breakdown)
@@ -76,15 +76,15 @@
         total-pay (+ normal-pay overtime-pay)
         difference (- total-pay reported-gross-pay)
         fairpay (>= reported-gross-pay total-pay)]
-   {:is-error false
+   {:is_error false
     :error {}
     :fairpay fairpay
-    :wage-breakdown {:normal-hours (str normal-hours)
-                     :normal-pay (format-money-value normal-pay)
-                     :overtime-hours (str overtime-hours)
-                     :overtime-pay (format-money-value overtime-pay)
-                     :total-pay (format-money-value total-pay)
-                     :reported-gross-wages (format-money-value reported-gross-pay)
+    :wage_breakdown {:normal_hours (str normal-hours)
+                     :normal_pay (format-money-value normal-pay)
+                     :overtime_hours (str overtime-hours)
+                     :overtime_pay (format-money-value overtime-pay)
+                     :total_pay (format-money-value total-pay)
+                     :reported_gross_wages (format-money-value reported-gross-pay)
                      :difference (format-money-value difference)}}))
 
 (defn calculate-weekly-pay 
