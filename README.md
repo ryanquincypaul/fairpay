@@ -31,6 +31,8 @@ Output
 
 This service can be consumed by anything that is set up to handle JSON responses. Federal and State minimum wage data can be found using the [minimum-wage](https://github.com/ryanquincypaul/minimum-wage) web service.
 
+See it in use within an Angular 2 web application at [fairpayWeb](https://github.com/ryanquincypaul/fairpayWeb).
+
 ## Motivation
 
 I wrote this as a microservice to a future web application that will be available for low-income earners to check if they are getting paid appropriately according to the FLSA. This could have just been done on the web application itself, but I wanted to consolidate the business logic in case further apps are written to serve the same function. 
