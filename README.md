@@ -1,6 +1,6 @@
 # fairpay
 
-A Clojure powered web service providing fair wage calculations for low-income workers. 
+A Clojure powered web service providing fair wage calculations as well as determination of FLSA compliance.
 
 ## Example
 This is currently hosted at the url below.
