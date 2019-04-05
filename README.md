@@ -3,7 +3,6 @@
 A Clojure powered web service providing fair wage calculations as well as determination of FLSA compliance.
 
 ## Example
-This is no longer hosted, below is an example call if it was still running at it's old location on Azure. 
 ```
 curl http://fairpay.azurewebsites.net/fairpay/weekly-earnings?minimum_wage=7.25&hours_worked=50&gross_wages=300
 ```
